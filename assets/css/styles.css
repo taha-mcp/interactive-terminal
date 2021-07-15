@@ -1,0 +1,20 @@
+.hover-btn {
+  background: black;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: white;
+  border-color: black;
+}
+
+.Z-button:hover {
+  color: white !important;
+  background: linear-gradient(54deg, rgb(52,169,253) 20%, rgb(133,199,242) 100%) !important;
+  font-weight: 400 !important;
+}
+
+.Z-button, .Z-div {
+  width: 100% !important;
+}
+
