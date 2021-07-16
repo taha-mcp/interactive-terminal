@@ -11,25 +11,34 @@ var CommandArary = [
     ["clear", "ClearCommand"]
 ];
 
+//Core functions
+
+function Search(term) {
+    return CommandArary.filter(([first]) => first === term).map(([first, ...rest]) => rest);
+}
+
 function QueryEntered(event) {
     event.preventDefault();
-
-    var Searchresult = [];
-    var TargetFunction = "";
 
     Query = TerminalInput.value;
 
     var Command = Query.replace(/ .*/,'');
 
+    var SearchResult = Search(Command);
+    var TargetFunction = "";
+
     TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> <b>user@web:~$</b> " + Query;
     TerminalInput.value = "";
-    CommandArary.forEach(e => {
-        if (e[0] == Command) {
-            Searchresult.push(e.slice(1));
-            TargetFunction = Searchresult.toString();
-            window[TargetFunction]();
-        }
-    });
+
+    if (SearchResult.length === 0) {
+        TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> Command '" + Command + "' not found. Type <b>help</b> to see the list of available commands.";
+    }
+    else {
+        TargetFunction = SearchResult.toString();
+        window[TargetFunction]();
+    }
+
+
 }
 
 //Command Functions
