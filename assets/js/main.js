@@ -27,7 +27,7 @@ function QueryEntered(event) {
     var SearchResult = Search(Command);
     var TargetFunction = "";
 
-    TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> <b>user@web:~$</b> " + Query;
+    TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> <span style='color:#1cdc9a;font-weight:bold;'>user@web:~$</span> " + Query;
     TerminalInput.value = "";
 
     if (SearchResult.length === 0) {

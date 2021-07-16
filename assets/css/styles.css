@@ -18,7 +18,7 @@
   width: 100% !important;
 }
 
-textarea:focus, input:focus {
+textarea:focus, input:focus, .form-control, {
   outline: none !important;
 }
 
