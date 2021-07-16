@@ -12,6 +12,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400,500,800">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -33,11 +34,15 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-7 text-center align-self-start" data-aos="fade-left">
-                        <div class="Z-div" style="width: 250px;text-align: left;background: linear-gradient(54deg, rgb(226,243,255) 20%, rgb(229,244,255) 100%);border-radius: 10px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-top: 10px;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);padding: 10px;min-width: 250px;">
-                            <p class="text-monospace" id="terminal-log" style="font-weight: 500;">Welcome to the Terminal Emulator.<br>Type out your commands in the input below.&nbsp;<br>Type <strong>help</strong><em> </em>to see the list of available commands</p>
+                        <div class="Z-div" style="width: 250px;text-align: left;border-radius: 10px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-top: 10px;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);min-width: 250px;padding-bottom: 10px;background: #232627;">
+                            <div style="background: #ffffff;height: 35px;border-top-left-radius: 10px;border-top-right-radius: 10px;overflow: hidden;">
+                                <div style="top: 0px;padding: 4px;"><i class="fa fa-close float-right" style="margin: 2px;font-size: 20px;color: rgb(255,88,88);margin-right: 5px;"></i><i class="fa fa-window-maximize float-right" style="margin: 2px;margin: 2px;font-size: 20px;margin-right: 5px;"></i><i class="fa fa-window-minimize float-right" style="margin: 2px;margin: 2px;font-size: 20px;margin-right: 5px;"></i><i class="fa fa-terminal float-left" style="margin: 2px;font-size: 20px;"></i></div>
+                                <p class="text-monospace d-xl-flex justify-content-xl-center align-items-xl-center" style="font-weight: 500;text-align: center;padding: 1px;width: 95%;position: absolute;">~:bash Terminal Emulator</p>
+                            </div>
+                            <p class="text-monospace" id="terminal-log" style="font-weight: 500;margin: 10px;color: rgb(255,255,255);">Welcome to the Terminal Emulator.<br>Type out your commands in the input below.&nbsp;<br>Type <strong>help</strong><em> </em>to see the list of available commands</p>
                         </div>
-                        <div class="text-monospace Z-div" style="width: 250px;text-align: left;background: linear-gradient(54deg, rgb(226,243,255) 20%, rgb(229,244,255) 100%);border-radius: 10px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-top: 10px;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);">
-                            <form id="form-h"><input class="form-control" type="text" id="form-i" style="width: 100%;border-radius: 5px;background: rgba(0,0,0,0);border-style: none;height: 100%;padding: 10px;" placeholder="Type here"></form>
+                        <div class="text-monospace Z-div" style="width: 250px;text-align: left;border-radius: 10px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-top: 10px;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);background: #232627;">
+                            <form id="form-h" autocomplete="off" style="outline: none;"><input class="form-control" type="text" id="form-i" style="width: 100%;border-radius: 5px;background: rgba(0,0,0,0);border-style: none;outline: none;height: 100%;padding: 10px;color: rgb(213,213,213);" placeholder="Type here"></form>
                         </div>
                     </div>
                 </div>
