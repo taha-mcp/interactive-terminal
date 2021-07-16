@@ -38,7 +38,7 @@ function QueryEntered(event) {
         window[TargetFunction]();
     }
 
-
+TerminalLogs.scrollTop = TerminalLogs.scrollHeight;
 }
 
 //Command Functions
