@@ -4,6 +4,14 @@ var TerminalInput = document.getElementById("form-i");
 var TerminalLogs = document.getElementById("terminal-log");
 var Query = "";
 var EchoedCommand = "";
+var CommandIndex = 0;
+
+TerminalInput.addEventListener('focus', TerminalFocused);
+TerminalInput.addEventListener('focusout', TerminalUnfocused);
+
+TerminalFocused();
+
+var CommandHistory = [];
 
 var CommandArary = [
     ["help", "HelpCommand"],
@@ -38,7 +46,47 @@ function QueryEntered(event) {
         window[TargetFunction]();
     }
 
+CommandHistory.push(Query);
+CommandIndex = CommandHistory.length;
 TerminalLogs.scrollTop = TerminalLogs.scrollHeight;
+
+}
+
+function TerminalFocused() {
+    document.addEventListener('keydown', KeeDown);
+}
+
+function TerminalUnfocused() {
+    document.removeEventListener('keydown', KeeDown);
+}
+
+function KeeDown (e) {
+    switch (e.key) {
+        case 'ArrowUp':
+            //Up Arrow
+            e.preventDefault();
+            if (CommandIndex > 0) {
+                CommandIndex = --CommandIndex;
+            }
+            RecallHistory();
+            break;
+        case 'ArrowDown':
+            //Down Arrow
+            e.preventDefault();
+            if (CommandIndex < CommandHistory.length) {
+                CommandIndex = ++CommandIndex;
+            }
+            RecallHistory();
+    }
+};
+
+function RecallHistory() {
+    if (CommandIndex == CommandHistory.length) {
+        TerminalInput.value = "";
+    }
+    else {
+        TerminalInput.value = CommandHistory[CommandIndex];
+    }
 }
 
 //Command Functions
