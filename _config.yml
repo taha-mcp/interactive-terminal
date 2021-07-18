@@ -1,5 +1,0 @@
-#Markdown processor configuration
-name: Interactive Terminal
-description: An interactive playground to get familiarized with the terminal.
-url: "https://taha-mcp.github.io/terminal-interactive-tutorial/"
-markdown: kramdown
