@@ -13,36 +13,38 @@ TerminalFocused();
 
 var CommandHistory = [];
 
+var InputArguments = [];
+
 var CommandArary = [
-    ["help", "HelpCommand"],
-    ["echo", "EchoCommand"],
-    ["clear", "ClearCommand"]
+    ["help", "HelpCommand", "Lists all available commands"],
+    ["echo", "EchoCommand", "Echoes a word or sentence"],
+    ["clear", "ClearCommand", "Clears all the text in the terminal window"]
 ];
 
 //Core functions
 
-function Search(term) {
-    return CommandArary.filter(([first]) => first === term).map(([first, ...rest]) => rest);
+function Search(Query, ResultColumn) {
+    return CommandArary.filter(([first]) => first === Query).map(([first, ResultColumn]) => ResultColumn);
 }
 
 function QueryEntered(event) {
     event.preventDefault();
 
     Query = TerminalInput.value;
+    InputArguments = Query.split(' ');
 
-    var Command = Query.replace(/ .*/,'');
-
-    var SearchResult = Search(Command);
+    var SearchResult = Search(InputArguments[0], "second");
     var TargetFunction = "";
 
     TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> <span style='color:#1cdc9a;font-weight:bold;'>user@web:~$</span> " + Query;
     TerminalInput.value = "";
 
     if (SearchResult.length === 0) {
-        TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> Command '" + Command + "' not found. Type <b>help</b> to see the list of available commands.";
+        TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> Command '" + InputArguments[0] + "' not found. Type <b>help</b> to see the list of available commands.";
     }
     else {
         TargetFunction = SearchResult.toString();
+        console.log(TargetFunction)
         window[TargetFunction]();
     }
 
@@ -92,7 +94,11 @@ function RecallHistory() {
 //Command Functions
 
 function HelpCommand() {
-    TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> TODO: Write commands here";
+    CommandArary.forEach(ListCommands);
+    function ListCommands(element) {
+        var FilteredText = element.toString().split(',');
+        TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br>" + FilteredText[0] + "______________" + FilteredText[2]
+    }
 }
 
 function EchoCommand() {
