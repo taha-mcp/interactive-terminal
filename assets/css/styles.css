@@ -22,3 +22,11 @@ textarea:focus, input:focus, .form-control, {
   outline: none !important;
 }
 
+.header-link {
+  opacity: 0.8;
+}
+
+.header-link:hover {
+  opacity: 1;
+}
+
