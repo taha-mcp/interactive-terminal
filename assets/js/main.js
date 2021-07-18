@@ -36,11 +36,11 @@ function QueryEntered(event) {
     var SearchResult = Search(InputArguments[0], "second");
     var TargetFunction = "";
 
-    TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> <span style='color:#1cdc9a;font-weight:bold;'>user@web:~$</span> " + Query;
+    WriteToTerminal("<br> <span style='color:#1cdc9a;font-weight:bold;'>user@web:~$</span> " + Query);
     TerminalInput.value = "";
 
     if (SearchResult.length === 0) {
-        TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br> Command '" + InputArguments[0] + "' not found. Type <b>help</b> to see the list of available commands.";
+        WriteToTerminal("Command '" + InputArguments[0] + "' not found. Type <b>help</b> to see the list of available commands.");
     }
     else {
         TargetFunction = SearchResult.toString();
@@ -91,19 +91,23 @@ function RecallHistory() {
     }
 }
 
+function WriteToTerminal(string) {
+    TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br>" + string;
+}
+
 //Command Functions
 
 function HelpCommand() {
     CommandArary.forEach(ListCommands);
     function ListCommands(element) {
         var FilteredText = element.toString().split(',');
-        TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br>" + FilteredText[0] + "______________" + FilteredText[2]
+        WriteToTerminal(FilteredText[0] + "______________" + FilteredText[2]);
     }
 }
 
 function EchoCommand() {
     EchoedCommand = Query.replace("echo", "");
-    TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br>" + EchoedCommand;
+    WriteToTerminal(EchoedCommand);
 }
 
 function ClearCommand() {
