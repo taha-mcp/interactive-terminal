@@ -1,1 +1,1 @@
-{"short_name":"Tau","name":"Terminal Emulator","icons":[],"start_url":"/index.html","background_color":"rgb(255,255,255)","theme_color":"rgb(255,255,255)","display":"fullscreen"}
+{"short_name":"TIT","name":"TIT Terminal Emulator","icons":[{"src":"/assets/img/Tit-logo-small.png","type":"image/png","sizes":"901x901"},{"src":"/assets/img/Tit-logo.png","type":"image/png","sizes":"1878x2000"}],"start_url":"/index.html","background_color":"rgb(255,255,255)","theme_color":"rgb(255,255,255)","display":"fullscreen"}
