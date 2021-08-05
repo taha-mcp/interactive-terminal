@@ -24,11 +24,6 @@ var CommandArary = [
     ["apt", "AptCommand", "Application package manager"]
 ];
 
-var ArgumentArray = [
-    ["apt", "update"],
-    ["apt", "test"]
-]
-
 //Core functions
 
 function Search(Array, Query, SearchColumn, ResultColumn) {
