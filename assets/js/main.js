@@ -5,6 +5,7 @@ var TerminalLogs = document.getElementById("terminal-log");
 var Query = "";
 var EchoedCommand = "";
 var CommandIndex = 0;
+var sudo = false;
 
 TerminalInput.addEventListener('focus', TerminalFocused);
 TerminalInput.addEventListener('focusout', TerminalUnfocused);
@@ -18,13 +19,20 @@ var InputArguments = [];
 var CommandArary = [
     ["help", "HelpCommand", "Lists all available commands"],
     ["echo", "EchoCommand", "Echoes a word or sentence"],
-    ["clear", "ClearCommand", "Clears all the text in the terminal window"]
+    ["clear", "ClearCommand", "Clears all the text in the terminal window"],
+    ["sudo", "SudoCommand", "Run a command with admin privileges"],
+    ["apt", "AptCommand", "Application package manager"]
 ];
+
+var ArgumentArray = [
+    ["apt", "update"],
+    ["apt", "test"]
+]
 
 //Core functions
 
-function Search(Query, ResultColumn) {
-    return CommandArary.filter(([first]) => first === Query).map(([first, ResultColumn]) => ResultColumn);
+function Search(Array, Query, SearchColumn, ResultColumn) {
+    return Array.filter(([SearchColumn]) => SearchColumn === Query).map(([SearchColumn, ResultColumn]) => ResultColumn);
 }
 
 function QueryEntered(event) {
@@ -33,18 +41,25 @@ function QueryEntered(event) {
     Query = TerminalInput.value;
     InputArguments = Query.split(' ');
 
-    var SearchResult = Search(InputArguments[0], "second");
-    var TargetFunction = "";
-
-    WriteToTerminal("<br> <span style='color:#1cdc9a;font-weight:bold;'>user@web:~$</span> " + Query);
+    WriteToTerminal("<br> <span style='color:#1cdc9a;font-weight:bold;'>user@linux:~$</span> " + Query);
     TerminalInput.value = "";
+
+    if (InputArguments[0] == "sudo") {
+        sudo = true;
+        InputArguments.shift();
+    }
+    else {
+        sudo = false;
+    }
+
+    var SearchResult = Search(CommandArary, InputArguments[0], "first", "second");
+    var TargetFunction = "";
 
     if (SearchResult.length === 0) {
         WriteToTerminal("Command '" + InputArguments[0] + "' not found. Type <b>help</b> to see the list of available commands.");
     }
     else {
-        TargetFunction = SearchResult.toString();
-        console.log(TargetFunction)
+        TargetFunction = Search(CommandArary, InputArguments[0], "first", "second").toString();
         window[TargetFunction]();
     }
 
@@ -55,14 +70,14 @@ TerminalLogs.scrollTop = TerminalLogs.scrollHeight;
 }
 
 function TerminalFocused() {
-    document.addEventListener('keydown', KeeDown);
+    document.addEventListener('keydown', KeyDown);
 }
 
 function TerminalUnfocused() {
-    document.removeEventListener('keydown', KeeDown);
+    document.removeEventListener('keydown', KeyDown);
 }
 
-function KeeDown (e) {
+function KeyDown (e) {
     switch (e.key) {
         case 'ArrowUp':
             //Up Arrow
@@ -79,6 +94,14 @@ function KeeDown (e) {
                 CommandIndex = ++CommandIndex;
             }
             RecallHistory();
+            break;
+        case e.ctrlKey && 'c':
+            e.preventDefault();
+            TerminalInput.value = "^C";
+            break;
+        case e.ctrlKey && 'v':
+            e.preventDefault();
+            TerminalInput.value = "^V";
     }
 };
 
@@ -97,6 +120,7 @@ function WriteToTerminal(string) {
 
 //Command Functions
 
+
 function HelpCommand() {
     CommandArary.forEach(ListCommands);
     function ListCommands(element) {
@@ -106,10 +130,22 @@ function HelpCommand() {
 }
 
 function EchoCommand() {
-    EchoedCommand = Query.replace("echo", "");
+    InputArguments.shift();
+    EchoedCommand = InputArguments.toString().replace(/[,]/g, " ");
     WriteToTerminal(EchoedCommand);
 }
 
 function ClearCommand() {
     TerminalLogs.innerHTML = "";
+}
+
+function AptCommand() {
+    switch (Search(ArgumentArray, InputArguments[1], "second", "second")) {
+        case "update":
+            console.log("Hi")
+
+    }
+    //if(watchesArray[0].sports.indexOf('Running') > -1){
+    //do somwthing
+    //}
 }

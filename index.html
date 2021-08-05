@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Terminal Emulator</title>
     <meta name="theme-color" content="rgb(255,255,255)">
-    <link rel="icon" type="image/png" sizes="1500x1500" href="assets/img/Tau.png">
-    <link rel="icon" type="image/png" sizes="1500x1500" href="assets/img/Tau.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900">
@@ -18,34 +16,35 @@
 </head>
 
 <body style="background: #f4f4f4;width: 100%;height: 100%;">
-    <div class="d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center justify-content-xl-center align-items-xl-center" style="padding: 80px;width: 100%;height: 100%;">
-        <div data-aos="slide-down" data-aos-delay="500" style="position: absolute;top: 0;width: 100%;color: rgb(248,253,255);background: #000000;padding: 10px;">
-            <div class="list-group list-group-horizontal" style="color: rgb(255,255,255);"><a class="list-group-item list-group-item-action d-flex align-items-center" style="background: transparent;color: rgb(255,255,255);padding: 0;">
-                    <h1 class="text-monospace float-left" style="font-family: Inter, sans-serif;width: 70%;font-size: 19px;margin: 0px;padding: 6px;">Terminal Emulator&nbsp;</h1>
-                </a><a class="list-group-item list-group-item-action d-flex align-items-center header-link" style="background: transparent;color: rgb(255,255,255);padding: 0;" href="https://taha-mcp.github.io/terminal-wiki/">
-                    <h1 class="text-monospace float-left" style="font-family: Inter, sans-serif;width: 70%;font-size: 19px;margin: 0px;padding: 6px;">Wiki</h1>
-                </a><a class="list-group-item list-group-item-action d-flex align-items-center header-link" style="background: transparent;color: rgb(255,255,255);padding: 0;" href="https://github.com/taha-mcp/terminal-interactive-tutorial">
-                    <h1 class="text-monospace float-left" style="font-family: Inter, sans-serif;width: 70%;font-size: 19px;margin: 0px;padding: 6px;">Github</h1>
-                </a></div>
-        </div>
+    <div data-aos="slide-down" data-aos-delay="500" style="top: 0;width: 100%;color: rgb(248,253,255);background: #000000;padding: 10px;z-index: 99;">
+        <div class="list-group list-group-horizontal" style="color: rgb(255,255,255);"><a class="list-group-item list-group-item-action d-flex align-items-center" style="background: transparent;color: rgb(255,255,255);padding: 0;">
+                <h1 class="text-monospace float-left" style="font-family: Inter, sans-serif;width: 70%;font-size: 19px;margin: 0px;padding: 6px;">Terminal Emulator&nbsp;</h1>
+            </a><a class="list-group-item list-group-item-action d-flex align-items-center header-link" style="background: transparent;color: rgb(255,255,255);padding: 0;" href="https://taha-mcp.github.io/terminal-wiki/">
+                <h1 class="text-monospace float-left" style="font-family: Inter, sans-serif;width: 70%;font-size: 19px;margin: 0px;padding: 6px;">Wiki</h1>
+            </a><a class="list-group-item list-group-item-action d-flex align-items-center header-link" style="background: transparent;color: rgb(255,255,255);padding: 0;" href="https://github.com/taha-mcp/terminal-interactive-tutorial">
+                <h1 class="text-monospace float-left" style="font-family: Inter, sans-serif;width: 70%;font-size: 19px;margin: 0px;padding: 6px;">Github</h1>
+            </a></div>
+    </div>
+    <div class="d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center justify-content-xl-center align-items-xl-center" style="width: 100%;height: 100%;padding: 10px;">
         <div style="padding: 0px;">
             <div class="container">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-md-6 col-xl-2 text-center align-self-start" data-aos="zoom-in-up">
-                        <div class="Z-div" style="width: 250px;text-align: left;background: linear-gradient(54deg, rgb(226,243,255) 20%, rgb(229,244,255) 100%);border-radius: 10px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-top: 10px;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);padding: 10px;filter: hue-rotate(158deg) saturate(162%);">
-                            <p class="text-monospace" id="help-log" style="font-weight: 500;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
+                <div class="row align-items-center">
                     <div class="col-md-6 col-xl-7 text-center align-self-start" data-aos="zoom-in-up">
-                        <div class="Z-div" style="width: 250px;text-align: left;border-radius: 10px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);min-width: 250px;background: transparent;margin-top: 10px;">
-                            <div style="background: #ffffff;height: 35px;border-top-left-radius: 10px;border-top-right-radius: 10px;overflow: hidden;">
-                                <div style="top: 0px;padding: 4px;"><i class="fa fa-window-close float-right" style="margin: 2px;font-size: 20px;color: rgb(255,88,88);margin-right: 5px;"></i><i class="fa fa-window-maximize float-right" style="margin: 2px;margin: 2px;font-size: 20px;margin-right: 5px;"></i><i class="fa fa-window-minimize float-right" style="margin: 2px;margin: 2px;font-size: 20px;margin-right: 5px;"></i><i class="fa fa-terminal float-left" style="margin: 2px;font-size: 20px;"></i></div>
+                        <div class="Z-div" style="width: 250px;text-align: left;border-radius: 3px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);min-width: 250px;background: transparent;margin-top: 10px;">
+                            <div style="background: #ffffff;height: 35px;border-top-left-radius: 3px;border-top-right-radius: 3px;overflow: hidden;">
+                                <div style="top: 0px;padding: 4px;"><i class="fa fa-times-circle float-right" style="margin: 2px;font-size: 25px;color: rgb(255,88,88);margin-right: 5px;margin-top: 1px;"></i><i class="fa fa-angle-up float-right" style="margin: 2px;margin: 2px;font-size: 25px;margin-right: 8px;margin-top: 1px;"></i><i class="fa fa-angle-down float-right" style="margin: 2px;margin: 2px;font-size: 25px;margin-right: 8px;margin-top: 1px;"></i><i class="fa fa-terminal float-left" style="margin: 2px;font-size: 20px;"></i></div>
                                 <p class="text-monospace" style="font-weight: 500;padding: 1px;width: 100%;text-align: center;">~:bash Terminal Emulator</p>
                             </div>
-                            <div style="background: #232627;padding-top: 10px;padding-bottom: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;">
+                            <div style="background: #232627;padding-top: 10px;padding-bottom: 10px;border-bottom-right-radius: 3px;border-bottom-left-radius: 3px;">
                                 <p class="text-monospace" id="terminal-log" style="font-weight: 500;margin: 10px;color: rgb(255,255,255);width: 97%;max-height: 250px;overflow: auto;margin-top: 0px;">Welcome to the Terminal Emulator.<br>Type out your commands in the input below.&nbsp;<br>Type <strong>help</strong><em> </em>to see the list of available commands</p>
-                                <form id="form-h" autocomplete="off" style="outline: none;"><label class="text-monospace justify-content-xl-start" style="color: rgb(28,220,154);margin-left: 10px;" for="form-i"><strong>user@web:~$</strong></label><input class="form-control d-inline text-monospace" type="text" id="form-i" style="background: rgba(0,0,0,0);border-style: none !important;outline: none;padding: 10px;color: rgb(213,213,213);border-radius: 10px;box-shadow: 0px 0px !important;width: 48%;margin-right: 10px;" placeholder="echo Hello!" name="form-i" autofocus=""></form>
+                                <form id="form-h" autocomplete="off" style="outline: none;"><label class="text-monospace justify-content-xl-start" id="form-l" style="color: rgb(28,220,154);margin-left: 10px;" for="form-i"><strong>user@linux:~$</strong></label><input class="form-control d-inline text-monospace" type="text" id="form-i" style="background: rgba(0,0,0,0);border-style: none !important;outline: none;padding: 10px;color: rgb(213,213,213);border-radius: 10px;box-shadow: 0px 0px !important;width: 48%;margin-right: 10px;" placeholder="echo Hello!" name="form-i" autofocus=""></form>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-5 text-center align-self-start" data-aos="zoom-in-up">
+                        <div class="Z-div" style="width: 250px;text-align: left;border-radius: 3px;border-style: none;color: rgb(0,66,86);font-weight: 600;margin-top: 10px;margin-bottom: 10px;box-shadow: 0px 0px 5px rgba(0,66,86,0.14);background: #ffffff;overflow: hidden;">
+                            <p class="text-monospace" id="help-log" style="font-weight: 500;padding: 10px;height: 180px;width: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="list-group list-group-horizontal" style="border-radius: 0;"><a class="list-group-item list-group-item-action text-center button" style="background: rgb(28,197,220);border-radius: 0;border-style: none;"><span>Back</span></a><a class="list-group-item list-group-item-action text-center button" style="background: rgb(28,220,154);border-radius: 0;border-style: none;"><span>Next</span></a></div>
                         </div>
                     </div>
                 </div>
