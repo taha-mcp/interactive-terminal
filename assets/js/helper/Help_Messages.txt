@@ -1,7 +1,0 @@
-Hello! This is the helper window. In this window you will see contextual, helpful messages when you enter specific commands.
-You can also use the Back and Next buttons to go throughout all the available short help messages.
-//
-Message2. <br> Line break!
-//
-Message 3
-No line break!

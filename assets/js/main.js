@@ -31,6 +31,7 @@ var CommandArary = [
 
 window.onload = (event) => {
     UpdateUser();
+    UpdateHelper();
 };
 
 
