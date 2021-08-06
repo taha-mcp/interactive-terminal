@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/taha-mcp/terminal-wiki/master/Media/Tit-logo.png" width="500" align="right">
 TIT is a terminal emulator written in JavaScript. It is designed to be able to run on any device with a webbrowser and can even work offline and as a PWA.
 
-### [Try now!](https://github.com/taha-mcp/interactive-terminal)
+### [Try now!](https://taha-mcp.github.io/interactive-terminal/)
 ### [Wiki](https://taha-mcp.github.io/terminal-wiki/)
 ### [Forums](https://github.com/taha-mcp/interactive-terminal/discussions)
   
