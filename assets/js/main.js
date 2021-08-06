@@ -1,11 +1,13 @@
-document.getElementById("form-h").addEventListener("submit", QueryEntered);
-
 var TerminalInput = document.getElementById("form-i");
 var TerminalLogs = document.getElementById("terminal-log");
+var TerminalLabel = document.getElementById("form-l");
 var Query = "";
 var EchoedCommand = "";
 var CommandIndex = 0;
+var CurrentUser = "user";
 var sudo = false;
+
+document.getElementById("form-h").addEventListener("submit", QueryEntered);
 
 TerminalInput.addEventListener('focus', TerminalFocused);
 TerminalInput.addEventListener('focusout', TerminalUnfocused);
@@ -21,10 +23,16 @@ var CommandArary = [
     ["echo", "EchoCommand", "Echoes a word or sentence"],
     ["clear", "ClearCommand", "Clears all the text in the terminal window"],
     ["sudo", "SudoCommand", "Run a command with admin privileges"],
-    ["apt", "AptCommand", "Application package manager"]
+    ["apt", "AptCommand", "Application package manager"],
+    ["su", "SuCommand", "Switch between users"]
 ];
 
 //Core functions
+
+window.onload = (event) => {
+    UpdateUser();
+};
+
 
 function Search(Array, Query, SearchColumn, ResultColumn) {
     return Array.filter(([SearchColumn]) => SearchColumn === Query).map(([SearchColumn, ResultColumn]) => ResultColumn);
@@ -36,7 +44,7 @@ function QueryEntered(event) {
     Query = TerminalInput.value;
     InputArguments = Query.split(' ');
 
-    WriteToTerminal("<br> <span style='color:#1cdc9a;font-weight:bold;'>user@linux:~$</span> " + Query);
+    WriteToTerminal("<br> <span style='color:#1cdc9a;font-weight:bold;'>" + CurrentUser + "@linux:~$</span> " + Query);
     TerminalInput.value = "";
 
     if (InputArguments[0] == "sudo") {
@@ -113,6 +121,10 @@ function WriteToTerminal(string) {
     TerminalLogs.innerHTML = TerminalLogs.innerHTML + "<br>" + string;
 }
 
+function UpdateUser() {
+    TerminalLabel.innerHTML = CurrentUser + "@linux:~S";
+}
+
 //Command Functions
 
 
@@ -135,12 +147,13 @@ function ClearCommand() {
 }
 
 function AptCommand() {
-    switch (Search(ArgumentArray, InputArguments[1], "second", "second")) {
-        case "update":
-            console.log("Hi")
+    //This doesn't work yet. Haven't figured out a nice way to do this yet.
+    //Probably need to use Nested arrays
+}
 
-    }
-    //if(watchesArray[0].sports.indexOf('Running') > -1){
-    //do somwthing
-    //}
+function SuCommand() {
+    var NewUser = InputArguments[1];
+    CurrentUser = NewUser;
+    UpdateUser();
+    WriteToTerminal("Logged in as " + NewUser);
 }
