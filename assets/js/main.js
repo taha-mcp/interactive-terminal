@@ -67,6 +67,7 @@ function QueryEntered(event) {
         window[TargetFunction]();
     }
 
+UpdateHelper(InputArguments[0]);
 CommandHistory.push(Query);
 CommandIndex = CommandHistory.length;
 TerminalLogs.scrollTop = TerminalLogs.scrollHeight;
@@ -106,6 +107,10 @@ function KeyDown (e) {
         case e.ctrlKey && 'v':
             e.preventDefault();
             TerminalInput.value = "^V";
+            break;
+        case e.ctrlKey && 'l':
+            e.preventDefault();
+            ClearCommand();
     }
 };
 
@@ -154,7 +159,12 @@ function AptCommand() {
 
 function SuCommand() {
     var NewUser = InputArguments[1];
-    CurrentUser = NewUser;
-    UpdateUser();
-    WriteToTerminal("Logged in as " + NewUser);
+    if (NewUser === undefined) {
+        WriteToTerminal("Missing Arguments <br> Enter user name");
+    }
+    else {
+        CurrentUser = NewUser;
+        UpdateUser();
+        WriteToTerminal("Logged in as " + NewUser);
+    }
 }
