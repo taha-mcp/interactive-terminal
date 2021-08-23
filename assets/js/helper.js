@@ -1,4 +1,5 @@
 var HelperLogs = document.getElementById("help-log");
+var HelperWindow = document.getElementById("help-window");
 
 document.getElementById("help-next").addEventListener("click", NextHelp);
 document.getElementById("help-back").addEventListener("click", LastHelp);
@@ -25,15 +26,22 @@ function LastHelp() {
     }
 }
 
+function SetHelperColor(color, width) {
+	HelperWindow.style.borderColor = color;
+	HelperWindow.style.borderWidth = width;
+}
+
 function UpdateHelper(Command) {
     var SearchResult = Search(HelpMessageArray, Command, "first", "second");
 
     if (SearchResult.length === 0 || Command == "-") {
         HelperLogs.innerHTML = HelpMessageArray[HelpIndex][1];
+        SetHelperColor("transparent", "0px");
     }
     else {
         var HelpText = Search(HelpMessageArray, Command, "first", "second").toString();
         HelperLogs.innerHTML = HelpText.replace(Command, "<span style='color:#FF0000; font-weight:bold;'>" + Command + "</span>");
         HelpIndex = HelpMessageArray.findIndex(([keyword, HelpMessage]) => keyword === Command && HelpMessage === HelpText);
+        SetHelperColor("red", "2px");
     }
 }
